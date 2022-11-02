@@ -8,10 +8,17 @@
 import SwiftUI
 import Combine
 
-class DownloadImageService{
+protocol DownloadImageServiceProtocol{
+    func handlerResponse(data: Data?, response: URLResponse?) -> UIImage?
+    
+    func downloadimage(serverId: String, photoId: String, secret: String, resolution: String) -> AnyPublisher<UIImage?, Error>
+}
+
+class DownloadImageService: DownloadImageServiceProtocol{
    let url = URL(string: "https://live.staticflickr.com/.jpg")!
     
-   // "https://live.staticflickr.com/65535/52465963023_8c3569937a_q.jpg"
+    static let shared: DownloadImageServiceProtocol = DownloadImageService()
+    private init() { }
     func handlerResponse(data: Data?, response: URLResponse?) -> UIImage?{
         guard
             let data = data,
