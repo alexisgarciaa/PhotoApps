@@ -28,6 +28,7 @@ struct SplashView: View {
                 })
             }
         }
+        .preferredColorScheme(.light)
     }
 }
 
