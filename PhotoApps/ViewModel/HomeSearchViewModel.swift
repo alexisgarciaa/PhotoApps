@@ -47,7 +47,6 @@ class HomeSearchViewModel: ObservableObject {
     }
     
      func fetchAllContacts() async {
-         //Run in the backgroaund
         let store = CNContactStore()
         let keys = [CNContactGivenNameKey] as [CNKeyDescriptor ]
         let fetchRequest = CNContactFetchRequest(keysToFetch: keys)
@@ -78,7 +77,7 @@ class HomeSearchViewModel: ObservableObject {
         }
     }
     
-       func settingsOpener(){
+    func settingsOpener(){
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 if UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:], completionHandler: nil)
