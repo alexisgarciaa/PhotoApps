@@ -9,7 +9,7 @@ import SwiftUI
 import Contacts
 
 struct HomeSearchView: View {
-    @StateObject private var photosVm = HomeSearchViewModel()
+    @StateObject private var photosVm = HomeSearchViewModel(searchText: "")
     @StateObject var network = NetworkConnection()
     let columns:[GridItem] = [
         GridItem(.flexible(minimum: 100), spacing: 1,alignment: nil),
@@ -35,8 +35,8 @@ struct HomeSearchView: View {
                                     DetailedImageView(imageInfo: item)
                                 } label: {
                                         CustomImage(imageInfo: item)
-                                        .accessibilityIdentifier("CardView")
                                 }
+                                .accessibilityIdentifier("CardView")
                                 .onAppear{
                                     if item.hashValue == photosVm.dataArray.last?.hashValue{
                                         photosVm.fetchDataInfinity(perPage: 40, newSearch: true)

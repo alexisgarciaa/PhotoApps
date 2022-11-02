@@ -12,7 +12,7 @@ import SwiftUI
 
 
 class HomeSearchViewModel: ObservableObject {
-    @Published var searchText: String = ""
+    @Published var searchText: String
     @Published var dataArray: [PhotosData] = []
     @Published var count = 1
     @Published var newSearch: Bool = false
@@ -23,8 +23,9 @@ class HomeSearchViewModel: ObservableObject {
     let dataService: DataServiceProtocol
     
     
-    init( dataService: DataServiceProtocol = DataService.shared) {
+    init( searchText: String,dataService: DataServiceProtocol = DataService.shared) {
             self.dataService = dataService
+            self.searchText = searchText
         }
     
     func fetchDataInfinity(perPage: Int,newSearch: Bool) {

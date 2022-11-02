@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailedImageView: View {
-    @StateObject private var viewModel = CustomImageViewModel()
+    @StateObject private var viewModel = CustomImageViewModel(image: UIImage())
     @State var imageInfo: PhotosData
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Environment(\.openURL) var openURL
@@ -31,11 +31,12 @@ struct DetailedImageView: View {
                         .padding(.horizontal, 20)
                         .background(.ultraThinMaterial.opacity(0.7))
                         .cornerRadius(5)
-                        
                 }
+                .accessibilityIdentifier("goToNavigator")
                 .padding(.bottom, 5)
                 HStack{
                     TextCustomPhotoApp(text: "Owener:", fontName: "Poppins-Medium", fontSize: 12, fontColor: .white, alignment: .center, lineLimit: 1)
+                        .accessibilityIdentifier("DetailedImageView")
                     TextCustomPhotoApp(text: imageInfo.owner ?? "", fontName: "Poppins-Medium", fontSize: 12, fontColor: .white, alignment: .center, lineLimit: 1)
                 }
                 
@@ -61,6 +62,7 @@ struct DetailedImageView: View {
                 } label: {
                     TextCustomPhotoApp(text: "Browser", fontName: "Poppins-Medium", fontSize: 16, fontColor: .black, alignment: .center, lineLimit: 1)
                 }
+                .accessibilityIdentifier("backToSearch")
             }
         })
         .onAppear{

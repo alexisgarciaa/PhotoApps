@@ -9,7 +9,7 @@ import SwiftUI
 import Contacts
 
 struct CustomSearchBar: View {
-    @StateObject private var photosVm = HomeSearchViewModel()
+    @StateObject private var photosVm = HomeSearchViewModel(searchText: "")
     @Binding var textInput: String
     @Binding var names : [CNContact]
     @Binding var showAlert: Bool
@@ -32,7 +32,6 @@ struct CustomSearchBar: View {
                         
                     } label: {
                         BurgerItem()
-                            .accessibilityIdentifier("BurgerMenuButton")
                     }
                     .accessibilityIdentifier("BurgerMenuButton")
                     .onTapGesture {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomImage: View {
-    @StateObject private var viewModel = CustomImageViewModel()
+    @StateObject private var viewModel = CustomImageViewModel(image: UIImage())
     @State var imageInfo: PhotosData
     var body: some View{
         ZStack{

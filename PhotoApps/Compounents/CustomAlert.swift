@@ -30,6 +30,7 @@ struct CustomAlert: View {
                             .frame(width: 200, height: 75)
                     }
                         TextCustomPhotoApp(text: "UNDERSTAND", fontName: "Poppins-Medium", fontSize: 12, fontColor: .white, alignment: .center, lineLimit: 1)
+                        .accessibilityIdentifier("understandButon")
                     .frame(maxWidth: .infinity, maxHeight: 47)
                     .background {
                         Color.blue.cornerRadius(10)
@@ -46,6 +47,7 @@ struct CustomAlert: View {
                 .cornerRadius(16)
                 .shadow(radius: 20)
             }
+            
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black.opacity(0.6))
             //.animation(.easeInOut, value: showAlert)
