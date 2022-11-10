@@ -383,7 +383,6 @@
 			);
 			mainGroup = 2A9D15012912419000775F6E;
 			packageReferences = (
-				2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */,
 			);
 			productRefGroup = 2A9D150B2912419000775F6E /* Products */;
 			projectDirPath = "";
@@ -790,17 +789,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Decybel07/L10n-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 2A9D15022912419000775F6E /* Project object */;
 }
