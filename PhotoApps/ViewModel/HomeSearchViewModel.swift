@@ -18,6 +18,14 @@ class HomeSearchViewModel: ObservableObject {
     @Published var names: [CNContact] = []
     @Published var loadingState: Bool = false
     @Published var showAlert: Bool = false
+    
+    // MARK: from Localizable File
+    @Published var splashText = String(localized: "HomeTextEmpty")
+    @Published var subtitleContactAlert = String(localized: "SubtitleContactAlert")
+    @Published var titleContactAlert = String(localized: "TitleContactAlert")
+    @Published var alertImageContactAlert = String(localized: "AlertImageContactAlert")
+    @Published var titleNetworkAlert = String(localized: "TitleAlertNetwork")
+    @Published var subtitleNetworkContactAlert = String(localized: "SubtitleAlertNetwork")
 
     var cancelable = Set<AnyCancellable>()
     let dataService: DataServiceProtocol

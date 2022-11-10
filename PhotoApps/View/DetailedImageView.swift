@@ -34,30 +34,31 @@ struct DetailedImageView: View {
         })
         .onAppear {
             viewModel.downloadimage(
-                serverId: imageInfo.server ?? "",
-                photoId: imageInfo.id ?? "",
-                secret: imageInfo.secret ?? "",
+                serverId: imageInfo.server ?? viewModel.emptySpace,
+                photoId: imageInfo.id ?? viewModel.emptySpace,
+                secret: imageInfo.secret ?? viewModel.emptySpace,
                 resolution: "b")
         }
     }
 }
 
 struct DetailedImageView_Previews: PreviewProvider {
+    static var viewModel = CustomImageViewModel(image: UIImage())
     static var previews: some View {
         DetailedImageView(imageInfo: PhotosData(
-            id: "",
-            owner: "holasas",
-            secret: "",
-            server: "",
+            id: viewModel.emptySpace,
+            owner: viewModel.emptySpace,
+            secret: viewModel.emptySpace,
+            server: viewModel.emptySpace,
             farm: 0,
-            title: "",
+            title: viewModel.emptySpace,
             isPublic: 0,
             isFriend: 0,
             isFamily: 0,
             description: Content(
-                content: "holas a todos espero esten bien hola team holas team"
+                content: viewModel.emptySpace
             ),
-            dateTaken: "holas mundo")
+            dateTaken: viewModel.emptySpace)
         )
     }
 }
@@ -66,7 +67,7 @@ extension DetailedImageView {
     private var description: some View {
         VStack(alignment: .leading) {
             Button {
-                openURL((URL(string: "https://live.staticflickr.com/\(imageInfo.server ?? "")/\(imageInfo.id ?? "")_\(imageInfo.secret ?? "")_\("c").jpg") ?? URL(string: "https://www.google.com"))!)
+                openURL((URL(string: "\(viewModel.baseUrl)\(imageInfo.server ?? "")/\(imageInfo.id ?? "")_\(imageInfo.secret ?? "")_\("c").jpg") ?? URL(string: viewModel.defaultURL))!)
             } label: {
                 TextCustomPhotoApp(
                     text: "Open in browser >",
@@ -117,7 +118,7 @@ extension DetailedImageView {
                     lineLimit: 1)
             }
                TextCustomPhotoApp(
-                    text: imageInfo.description?.content ?? "Lorem ipsum dolor sit amet deos asd oihsl shjkjj ddjiiue eueuofo soduo soo",
+                text: imageInfo.description?.content ?? viewModel.defaulText,
                     fontName: "Poppins-Medium",
                     fontSize: 12,
                     fontColor: .white,

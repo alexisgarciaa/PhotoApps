@@ -9,10 +9,11 @@ import SwiftUI
 
 struct SplashView: View {
     @State var showHomeView: Bool = false
+    let splashText = String(localized: "SplashText")
     var body: some View {
         NavigationView {
             VStack {
-                TextCustomPhotoApp(text: "Photos Challenge",
+                TextCustomPhotoApp(text: splashText,
                                    fontName: "Poppins-Black",
                                    fontSize: 22)
                 NavigationLink(isActive: $showHomeView) {

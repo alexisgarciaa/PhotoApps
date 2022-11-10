@@ -1,0 +1,35 @@
+/* 
+  Localizable.strings
+  PhotoApps
+
+  Created by Alexis on 10/11/22.
+  
+*/
+
+// MARK - HomeSearchView
+
+"SplashText" = "Photos Challenge";
+"HomeTextEmpty" = "Find Flickr photos by \nsearching names in the \nsearch bar below";
+"SubtitleContactAlert" = "In order to use the conctac list to search feature, we need permission\n go to Setting -> Privacy\n contacts";
+"TitleContactAlert" = "Permission not provided!!";
+"AlertImageContactAlert" = "alertImage";
+"TitleAlertNetwork" = "Internet Connection";
+"SubtitleAlertNetwork" = "In order to use the App we need a internet connection";
+
+
+// MARK: DetailedImageView
+
+"DefaultText" = "Lorem ipsum dolor sit amet deos asd oihsl shjkjj ddjiiue eueuofo soduo soo";
+"BaseUrl" = "https://live.staticflickr.com/";
+"DefaulUrl" = "https://www.google.com";
+"EmptySpace" = "";
+
+
+// MARK: DataService
+"baseUrlDataService" = "https://www.flickr.com/services/rest/?";
+"apiKey" = "70fdb0e0bfd1f2a4e7a13143e2d01322";
+"format" = "json&nojsoncallback=1";
+
+
+// MARK: DownloadImageService
+"BaseUrlDownloadImageService" = "https://live.staticflickr.com/.jpg";

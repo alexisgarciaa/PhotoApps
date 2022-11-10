@@ -30,6 +30,10 @@
 		2A9D154B2912458900775F6E /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D154A2912458900775F6E /* NetworkConnection.swift */; };
 		2A9D154D291245A700775F6E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D154C291245A700775F6E /* Extension.swift */; };
 		2A9D156729124BB000775F6E /* HomeSearchView_UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D156629124BB000775F6E /* HomeSearchView_UITest.swift */; };
+		2AF7AE2B291D77D10091416B /* L10n-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF7AE2A291D77D10091416B /* L10n-swift */; };
+		2AF7AE36291D7D460091416B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D15322912441000775F6E /* SplashView.swift */; };
+		2AF7AE37291D7D470091416B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D15322912441000775F6E /* SplashView.swift */; };
+		2AF7AE45291D85E40091416B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7AE47291D85E40091416B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,8 @@
 		2A9D156429124B4300775F6E /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		2A9D156529124B4300775F6E /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
 		2A9D156629124BB000775F6E /* HomeSearchView_UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchView_UITest.swift; sourceTree = "<group>"; };
+		2AF7AE46291D85E40091416B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2AF7AE48291D85FB0091416B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AF7AE2B291D77D10091416B /* L10n-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +162,7 @@
 		2A9D150C2912419000775F6E /* PhotoApps */ = {
 			isa = PBXGroup;
 			children = (
+				2AF7AE40291D85100091416B /* Localizables */,
 				2A9D155329124B2A00775F6E /* Font */,
 				2A9D1530291243C400775F6E /* Extension */,
 				2A9D152F291243BA00775F6E /* Network */,
@@ -277,6 +285,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		2AF7AE40291D85100091416B /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				2AF7AE47291D85E40091416B /* Localizable.strings */,
+			);
+			path = Localizables;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -311,6 +327,9 @@
 			dependencies = (
 			);
 			name = PhotoApps;
+			packageProductDependencies = (
+				2AF7AE2A291D77D10091416B /* L10n-swift */,
+			);
 			productName = PhotoApps;
 			productReference = 2A9D150A2912419000775F6E /* PhotoApps.app */;
 			productType = "com.apple.product-type.application";
@@ -363,8 +382,12 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 2A9D15012912419000775F6E;
+			packageReferences = (
+				2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */,
+			);
 			productRefGroup = 2A9D150B2912419000775F6E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -389,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9D15152912419100775F6E /* Preview Assets.xcassets in Resources */,
+				2AF7AE45291D85E40091416B /* Localizable.strings in Resources */,
 				2A9D15122912419100775F6E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A8C0E0B29124DB3001EF9CB /* PhotoAppsTests_UnitTest.swift in Sources */,
+				2AF7AE37291D7D470091416B /* SplashView.swift in Sources */,
 				2A8C0E212912B19E001EF9CB /* CustomImageViewModel_UnitTest.swift in Sources */,
 				2A8C0E1229124DFA001EF9CB /* HomeSearchViewModel_Test.swift in Sources */,
 			);
@@ -440,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9D1522291241BB00775F6E /* PhotoApps_UITests.swift in Sources */,
+				2AF7AE36291D7D460091416B /* SplashView.swift in Sources */,
 				2A9D1524291241BB00775F6E /* PhotoApps_UITestsLaunchTests.swift in Sources */,
 				2A9D156729124BB000775F6E /* HomeSearchView_UITest.swift in Sources */,
 			);
@@ -459,6 +485,18 @@
 			targetProxy = 2A9D1525291241BB00775F6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2AF7AE47291D85E40091416B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2AF7AE46291D85E40091416B /* en */,
+				2AF7AE48291D85FB0091416B /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		2A8C0E0E29124DB3001EF9CB /* Debug */ = {
@@ -501,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -561,6 +600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -753,6 +793,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Decybel07/L10n-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2AF7AE2A291D77D10091416B /* L10n-swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */;
+			productName = "L10n-swift";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A9D15022912419000775F6E /* Project object */;
 }

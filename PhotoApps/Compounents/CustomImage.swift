@@ -23,9 +23,9 @@ struct CustomImage: View {
             }
         }
         .onAppear {
-            viewModel.downloadimage(serverId: imageInfo.server ?? "",
-                                    photoId: imageInfo.id ?? "",
-                                    secret: imageInfo.secret ?? "",
+            viewModel.downloadimage(serverId: imageInfo.server ?? viewModel.emptySpace,
+                                    photoId: imageInfo.id ?? viewModel.emptySpace,
+                                    secret: imageInfo.secret ?? viewModel.emptySpace,
                                     resolution: "q")
         }
 
@@ -33,21 +33,22 @@ struct CustomImage: View {
 }
 
 struct CustomImage_Previews: PreviewProvider {
+    static var viewModel = CustomImageViewModel(image: UIImage())
     static var previews: some View {
         DetailedImageView(imageInfo:
                             PhotosData(
-                                id: "",
-                                owner: "holasas",
-                                secret: "",
-                                server: "",
+                                id: viewModel.emptySpace,
+                                owner: viewModel.emptySpace,
+                                secret: viewModel.emptySpace,
+                                server: viewModel.emptySpace,
                                 farm: 0,
-                                title: "",
+                                title: viewModel.emptySpace,
                                 isPublic: 0,
                                 isFriend: 0,
                                 isFamily: 0,
                                 description: Content(
-                                    content: "holas a todos espero esten bien"),
-                                dateTaken: "holas mundo")
+                                    content: viewModel.emptySpace),
+                                dateTaken: viewModel.emptySpace)
         )
     }
 }

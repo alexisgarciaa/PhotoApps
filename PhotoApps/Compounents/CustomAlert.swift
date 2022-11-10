@@ -71,8 +71,8 @@ struct CustomAlert: View {
 
 struct CustomAlert_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlert(title: .constant("hola"),
-                    subtitle: .constant("hola"),
+        CustomAlert(title: .constant(""),
+                    subtitle: .constant(""),
                     imageName: .constant(nil),
                     action: {})
     }

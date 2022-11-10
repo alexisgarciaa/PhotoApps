@@ -18,6 +18,7 @@ struct HomeSearchView: View {
     ]
     @FocusState private var hideKeyboard: Bool
     @State var showAlert: Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -30,9 +31,9 @@ struct HomeSearchView: View {
 
                 if showAlert {
                     CustomAlert(
-                        title: .constant("Permission not provided!!"),
-                        subtitle: .constant("In order to use the conctac list to search feature, we need permission\n go to Setting -> Privacy\n contacts"),
-                        imageName: .constant("alertImage")
+                        title: .constant(photosVm.titleContactAlert),
+                        subtitle: .constant(photosVm.subtitleContactAlert),
+                        imageName: .constant(photosVm.alertImageContactAlert)
                     ) {
                             showAlert = false
                             photosVm.settingsOpener()
@@ -40,8 +41,8 @@ struct HomeSearchView: View {
                 }
                 if !(network.connected ?? true) {
                     CustomAlert(
-                        title: .constant("Internet Connection"),
-                        subtitle: .constant("In order to use the App we need a internet connection"),
+                        title: .constant(photosVm.titleNetworkAlert),
+                        subtitle: .constant(photosVm.subtitleNetworkContactAlert),
                         imageName: .constant(nil)
                     ) {}
                 }
@@ -70,7 +71,7 @@ extension HomeSearchView {
         VStack {
             if photosVm.dataArray.isEmpty || photosVm.dataArray == nil {
                 TextCustomPhotoApp(
-                    text: "Find Flickr photos by \nsearching names in the \nsearch bar below",
+                    text: photosVm.splashText,
                     fontName: "Poppins-Regular",
                     fontSize: 18,
                     fontColor: .black.opacity( 0.60),
