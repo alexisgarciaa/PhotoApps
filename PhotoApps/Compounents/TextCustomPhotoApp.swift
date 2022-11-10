@@ -14,8 +14,13 @@ struct TextCustomPhotoApp: View {
     @State var fontColor: Color
     @State var alignment: TextAlignment
     @State var lineLimint: Int
-    
-    init(text: String = "", fontName: String = "Poppins-Regular" , fontSize: CGFloat = 18, fontColor: Color = .black, alignment: TextAlignment = .center, lineLimit: Int = 1){
+
+    init(text: String = "",
+         fontName: String = "Poppins-Regular",
+         fontSize: CGFloat = 18,
+         fontColor: Color = .black,
+         alignment: TextAlignment = .center,
+         lineLimit: Int = 1) {
         self.text = text
         self.fontSize = fontSize
         self.fontName = fontName
@@ -23,9 +28,9 @@ struct TextCustomPhotoApp: View {
         self.alignment = alignment
         self.lineLimint = lineLimit
     }
-    
-    var body: some View{
-        VStack{
+
+    var body: some View {
+        VStack {
             Text(text)
                 .font(.custom(fontName, size: fontSize))
                 .foregroundColor(fontColor)

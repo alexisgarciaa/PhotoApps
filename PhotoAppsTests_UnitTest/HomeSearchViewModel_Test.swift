@@ -10,8 +10,7 @@ import Combine
 import Contacts
 @testable import PhotoApps
 
-
-final class HomeSearchViewModel_Test: XCTestCase {
+final class HomeSearchViewModelTest: XCTestCase {
     var viewModel: HomeSearchViewModel?
     var cancelable = Set<AnyCancellable>()
     override func setUpWithError() throws {
@@ -20,121 +19,140 @@ final class HomeSearchViewModel_Test: XCTestCase {
     override func tearDownWithError() throws {
         viewModel = nil
     }
-    
-    func test_HomeSearchViewModel_dataArray_shouldBeEmpty() {
-        //given
-        //when
-        let vm = HomeSearchViewModel(searchText: "")
-        //then
-        XCTAssertTrue(vm.dataArray.isEmpty)
-        XCTAssertEqual(vm.dataArray.count, 0)
-    }
-    
-    func test_HomeSearchViewModel_dataArray_shouldAddItem() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "value")
-        //when
-        let loopCount : Int = Int.random(in: 1..<15)
-        
-        for _ in 0..<loopCount {
-            vm.dataArray.append(PhotosData(id: "", owner: "", secret: "", server: "", farm: 4, title: "", isPublic: 4, isFriend: 1, isFamily: 1, description: Content(content: ""), dateTaken: ""))
-        }
-        
-        //then
-        XCTAssertTrue(!vm.dataArray.isEmpty)        
-    }
-    
-    func test_HomeSearchViewModel_loadingState_Status_ShouldBeFalse() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "v")
-        
-        vm.fetchDataInfinity(perPage: 1, newSearch: false)
-        //when
 
-        //then
-        XCTAssertTrue(vm.loadingState)
+    func test_HomeSearchViewModel_dataArray_shouldBeEmpty() {
+        // given
+        // when
+        let viewModel = HomeSearchViewModel(searchText: "")
+        // then
+        XCTAssertTrue(viewModel.dataArray.isEmpty)
+        XCTAssertEqual(viewModel.dataArray.count, 0)
+    }
+
+    func test_HomeSearchViewModel_dataArray_shouldAddItem() {
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "value")
+        // when
+        let loopCount: Int = Int.random(in: 1..<15)
+
+        for _ in 0..<loopCount {
+            viewModel.dataArray.append(PhotosData(id: "",
+                                                  owner: "",
+                                                  secret: "",
+                                                  server: "",
+                                                  farm: 4,
+                                                  title: "",
+                                                  isPublic: 4,
+                                                  isFriend: 1,
+                                                  isFamily: 1,
+                                                  description: Content(content: ""),
+                                                  dateTaken: ""))
+        }
+
+        // then
+        XCTAssertTrue(!viewModel.dataArray.isEmpty)
+    }
+
+    func test_HomeSearchViewModel_loadingState_Status_ShouldBeFalse() {
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "v")
+
+        viewModel.fetchDataInfinity(perPage: 1, newSearch: false)
+        // when
+        // then
+        XCTAssertTrue(viewModel.loadingState)
     }
     func test_HomeSearchViewModel_loadingState_Status_ShouldBetrue() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "value")
-        //when
-        vm.fetchDataInfinity(perPage: 1, newSearch: false)
-                
-        let loopCount : Int = Int.random(in: 1..<15)
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "value")
+        // when
+        viewModel.fetchDataInfinity(perPage: 1, newSearch: false)
+
+        let loopCount: Int = Int.random(in: 1..<15)
 
         for _ in 0..<loopCount {
-            vm.dataArray.append(PhotosData(id: "", owner: "", secret: "", server: "", farm: 4, title: "", isPublic: 4, isFriend: 1, isFamily: 1, description: Content(content: ""), dateTaken: ""))
+            viewModel.dataArray.append(PhotosData(id: "",
+                                                  owner: "",
+                                                  secret: "",
+                                                  server: "",
+                                                  farm: 4,
+                                                  title: "",
+                                                  isPublic: 4,
+                                                  isFriend: 1,
+                                                  isFamily: 1,
+                                                  description: Content(content: ""),
+                                                  dateTaken: "")
+            )
         }
-        
-        //then
-        XCTAssertFalse(!vm.loadingState)
-    }
-    
-    func test_HomeSearchViewModel_fetchDataInfinity_shouldReturnItems() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "val")
-        //when
-        let expectation = XCTestExpectation(description: "Should return items after a second")
-        vm.$dataArray
-            .dropFirst()
-            .sink { returnItems in
-                if !vm.newSearch{
-                    expectation.fulfill()
-                }
-            }
-            .store(in: &cancelable)
-        vm.fetchDataInfinity(perPage: 1, newSearch: false)
 
-        
-        //then
-        wait(for: [expectation], timeout: 5)
-        XCTAssertGreaterThan(vm.dataArray.count, 0)
+        // then
+        XCTAssertFalse(!viewModel.loadingState)
     }
-    
-    func test_HomeSearchViewModel_fetchDataInfinity_shouldReturnItemswithTrueParameter() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "val")
-        //when
+
+    func test_HomeSearchViewModel_fetchDataInfinity_shouldReturnItems() {
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "val")
+        // when
         let expectation = XCTestExpectation(description: "Should return items after a second")
-        
-        vm.$dataArray
+        viewModel.$dataArray
             .dropFirst()
-            .sink { returnItems in
-                if !vm.newSearch{
+            .sink { _ in
+                if !viewModel.newSearch {
                     expectation.fulfill()
                 }
             }
             .store(in: &cancelable)
-        vm.fetchDataInfinity(perPage: 1, newSearch: true)
-        //then
+        viewModel.fetchDataInfinity(perPage: 1, newSearch: false)
+
+        // then
         wait(for: [expectation], timeout: 5)
-        XCTAssertGreaterThan(vm.dataArray.count, 0)
+        XCTAssertGreaterThan(viewModel.dataArray.count, 0)
     }
-    //MARK: In order to complete this test the contact permission should be off
+
+    func test_HomeSearchViewModel_fetchDataInfinity_shouldReturnItemswithTrueParameter() {
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "val")
+        // when
+        let expectation = XCTestExpectation(description: "Should return items after a second")
+
+        viewModel.$dataArray
+            .dropFirst()
+            .sink { _ in
+                if !viewModel.newSearch {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &cancelable)
+        viewModel.fetchDataInfinity(perPage: 1, newSearch: true)
+        // then
+        wait(for: [expectation], timeout: 5)
+        XCTAssertGreaterThan(viewModel.dataArray.count, 0)
+    }
+    // MARK: In order to complete this test the contact permission should be off
     func test_HomeSearchViewModel_checkContactPermission_showAlertShouldBeTrue() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "")
-        
-        //when
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "")
+
+        // when
         let contactStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
         if contactStatus == .denied || contactStatus == .notDetermined {
-            XCTAssertTrue(vm.showAlert)
+            XCTAssertTrue(viewModel.showAlert)
         }
-        //then
-        
+        // then
+
     }
-    
+
     func test_HomeSearchViewModel_checkContactPermission_showAlertShouldBefalse() {
-        //given
-        let vm = HomeSearchViewModel(searchText: "")
-        
-        //when
+        // given
+        let viewModel = HomeSearchViewModel(searchText: "")
+
+        // when
         let contactStatus = CNContactStore.authorizationStatus(for: CNEntityType.contacts)
-        if contactStatus == .authorized{
-            XCTAssertTrue(!vm.showAlert)
+        if contactStatus == .authorized {
+            XCTAssertTrue(!viewModel.showAlert)
         }
-        //then
-        
+        // then
+
     }
-    
+
 }

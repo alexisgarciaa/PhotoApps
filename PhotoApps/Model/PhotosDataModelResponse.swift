@@ -9,7 +9,7 @@ import Foundation
 
 struct ResponsePhotos: Codable {
     let photos: PhotosDataModel
-    enum CodingKeys: String, CodingKey{
+    enum CodingKeys: String, CodingKey {
         case photos = "photos"
     }
 }
@@ -20,7 +20,7 @@ struct PhotosDataModel: Codable {
     let perPage: Int
     let total: Int?
     let photo: [PhotosData]
-    
+
     enum CodingKeys: String, CodingKey {
         case page = "page"
         case pages = "pages"
@@ -42,8 +42,8 @@ struct PhotosData: Codable, Hashable {
     let isFamily: Int?
     let description: Content?
     let dateTaken: String?
-    
-    enum CodingKeys: String, CodingKey{
+
+    enum CodingKeys: String, CodingKey {
         case id = "id"
         case owner = "owner"
         case secret = "secret"
@@ -60,7 +60,7 @@ struct PhotosData: Codable, Hashable {
 
 struct Content: Codable, Hashable {
     let content: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case content = "_content"
     }

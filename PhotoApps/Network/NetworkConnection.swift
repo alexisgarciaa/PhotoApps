@@ -12,8 +12,7 @@ class NetworkConnection: ObservableObject {
     let monitor = NWPathMonitor()
     let queue = DispatchQueue(label: "Monitor")
     @Published private(set) var connected: Bool?
-    
-    init(){
+    init() {
      checkConnection()
     }
     func checkConnection() {

@@ -14,4 +14,3 @@ extension String {
         return simple.components(separatedBy: nonAlphaNumeric).joined(separator: "")
     }
 }
-

@@ -11,7 +11,7 @@ import Contacts
 struct CustomSearchBar: View {
     @StateObject private var photosVm = HomeSearchViewModel(searchText: "")
     @Binding var textInput: String
-    @Binding var names : [CNContact]
+    @Binding var names: [CNContact]
     @Binding var showAlert: Bool
     var body: some View {
         RoundedRectangle(cornerRadius: 5)
@@ -19,9 +19,9 @@ struct CustomSearchBar: View {
             .foregroundColor(.black)
             .frame(maxWidth: .infinity, maxHeight: 46)
             .overlay {
-                HStack{
+                HStack {
                     Menu {
-                            ForEach(names,id: \.hashValue) { item in
+                            ForEach(names, id: \.hashValue) { item in
                                 Button {
                                     textInput = item.givenName.capitalized
                                     print(item.givenName)
@@ -29,17 +29,15 @@ struct CustomSearchBar: View {
                                     Text("\(item.givenName)")
                                 }
                             }
-                        
                     } label: {
-                        BurgerItem()
+                        burgerItem()
                     }
                     .accessibilityIdentifier("BurgerMenuButton")
                     .onTapGesture {
                             photosVm.checkContactPermission()
                             showAlert = photosVm.showAlert
                     }
-                    
-                    SearchBarIcons()
+                    searchBarIcons()
                 }
             }
             .background(
@@ -48,7 +46,7 @@ struct CustomSearchBar: View {
             )
         }
     @ViewBuilder
-    func BurgerItem() -> some View {
+    func burgerItem() -> some View {
         Image("menuBurger")
             .renderingMode(.template)
             .resizable()
@@ -56,9 +54,9 @@ struct CustomSearchBar: View {
             .frame(width: 17, height: 11)
             .padding(.leading, 15)
     }
-    
+
     @ViewBuilder
-    func SearchBarIcons() -> some View {
+    func searchBarIcons() -> some View {
         TextField("Search", text: $textInput)
             .font(.custom("Poppins-Medium", size: 15))
             .padding(.leading, 15)
