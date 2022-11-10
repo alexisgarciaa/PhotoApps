@@ -30,7 +30,6 @@
 		2A9D154B2912458900775F6E /* NetworkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D154A2912458900775F6E /* NetworkConnection.swift */; };
 		2A9D154D291245A700775F6E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D154C291245A700775F6E /* Extension.swift */; };
 		2A9D156729124BB000775F6E /* HomeSearchView_UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D156629124BB000775F6E /* HomeSearchView_UITest.swift */; };
-		2AF7AE2B291D77D10091416B /* L10n-swift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AF7AE2A291D77D10091416B /* L10n-swift */; };
 		2AF7AE36291D7D460091416B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D15322912441000775F6E /* SplashView.swift */; };
 		2AF7AE37291D7D470091416B /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9D15322912441000775F6E /* SplashView.swift */; };
 		2AF7AE45291D85E40091416B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2AF7AE47291D85E40091416B /* Localizable.strings */; };
@@ -115,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AF7AE2B291D77D10091416B /* L10n-swift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +326,6 @@
 			);
 			name = PhotoApps;
 			packageProductDependencies = (
-				2AF7AE2A291D77D10091416B /* L10n-swift */,
 			);
 			productName = PhotoApps;
 			productReference = 2A9D150A2912419000775F6E /* PhotoApps.app */;
@@ -804,14 +801,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		2AF7AE2A291D77D10091416B /* L10n-swift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2AF7AE29291D77D10091416B /* XCRemoteSwiftPackageReference "L10n-swift" */;
-			productName = "L10n-swift";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2A9D15022912419000775F6E /* Project object */;
 }
