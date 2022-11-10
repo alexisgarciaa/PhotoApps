@@ -70,7 +70,7 @@ extension DetailedImageView {
                 openURL((URL(string: "\(viewModel.baseUrl)\(imageInfo.server ?? "")/\(imageInfo.id ?? "")_\(imageInfo.secret ?? "")_\("c").jpg") ?? URL(string: viewModel.defaultURL))!)
             } label: {
                 TextCustomPhotoApp(
-                    text: "Open in browser >",
+                    text: viewModel.openBrowser,
                     fontName: "Poppins-Medium",
                     fontSize: 12,
                     fontColor: .white,
@@ -85,7 +85,7 @@ extension DetailedImageView {
             .padding(.bottom, 5)
             HStack {
                 TextCustomPhotoApp(
-                    text: "Owener:",
+                    text: viewModel.owner,
                     fontName: "Poppins-Medium",
                     fontSize: 12,
                     fontColor: .white,
@@ -103,7 +103,7 @@ extension DetailedImageView {
 
             HStack {
                 TextCustomPhotoApp(
-                    text: "Taken at:",
+                    text: viewModel.taken,
                     fontName: "Poppins-Medium",
                     fontSize: 12,
                     fontColor: .white,
@@ -138,7 +138,7 @@ extension DetailedImageView {
             presentationMode.wrappedValue.dismiss()
         } label: {
             TextCustomPhotoApp(
-                text: "Browser",
+                text: viewModel.back,
                 fontName: "Poppins-Medium",
                 fontSize: 16,
                 fontColor: .black,

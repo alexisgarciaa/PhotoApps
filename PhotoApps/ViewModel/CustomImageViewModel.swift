@@ -14,6 +14,10 @@ class CustomImageViewModel: ObservableObject {
     @Published var baseUrl = String(localized: "BaseUrl")
     @Published var emptySpace = String(localized: "EmptySpace")
     @Published var defaultURL = String(localized: "DefaulUrl")
+    @Published var openBrowser = String(localized: "OpenBrowser")
+    @Published var owner = String(localized: "owner")
+    @Published var taken = String(localized: "taken")
+    @Published var back = String(localized: "back")
     let loader: DownloadImageServiceProtocol
     var cancelable = Set<AnyCancellable>()
     init(image: UIImage? = nil,

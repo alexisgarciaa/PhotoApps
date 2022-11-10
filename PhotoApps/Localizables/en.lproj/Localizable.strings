@@ -23,6 +23,10 @@
 "BaseUrl" = "https://live.staticflickr.com/";
 "DefaulUrl" = "https://www.google.com";
 "EmptySpace" = "";
+"OpenBrowser" = "Open in browser >";
+"owner" = "Owener:";
+"taken" = "Taken at:";
+"back" = "Browser";
 
 
 // MARK: DataService
